@@ -6,7 +6,7 @@ end
 
 print("hello, world, hello, queue!")
 
-local Directory = "TempCode"
+local Directory = "Tempcode"
 if not isfolder(Directory) then
 	makefolder(Directory)
 end
