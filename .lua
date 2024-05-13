@@ -15,11 +15,9 @@ script_key = "a"
 local function ServerHop()
 	local ScriptFile = Directory .. "/Dropfarm.lua"
 
-	local ScriptSaved = [[print("loaded on queue")]] -- game:HttpGet("URL")
+	local ScriptSaved = [[loadstring(game:HttpGet("https://raw.githubusercontent.com/TempIsGay/queue_test/main/.lua"))()]] 
 	writefile(ScriptFile, ScriptSaved)
 	local Queue = [[
-        getgenv().StartingMoney = ]]..tostring(getgenv().StartingMoney)..[[
-        getgenv().StartingTime = ]]..tostring(getgenv().StartingTime)..[[
         script_key = "]]..script_key..[[";
         loadstring(readfile("]] .. ScriptFile .. [["))()
     ]]
