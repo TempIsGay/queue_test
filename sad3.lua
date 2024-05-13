@@ -40,9 +40,7 @@ local function ServerHop()
 			until Server
 
 			if Server.playing < Server.maxPlayers and Server.id ~= game.JobId then
-				pcall(function()
-					game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, Server.id, game:GetService("Players").LocalPlayer)
-				end)
+				game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, Server.id, game:GetService("Players").LocalPlayer)
 			end
 
 			task.wait(10)
