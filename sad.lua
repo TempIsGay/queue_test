@@ -6,6 +6,13 @@ end
 
 repeat wait() until game:IsLoaded()
 
+print("hello, world, hello, queue!")
+
+local Directory = "TempCode"
+if not isfolder(Directory) then
+	makefolder(Directory)
+end
+
 script_key = "a"
 local function ServerHop()
 	local ScriptFile = Directory .. "/Dropfarm.lua"
@@ -45,18 +52,6 @@ local function ServerHop()
 
 		task.wait(10)
 	end
-end
-
-task.delay(10, function()
-    ServerHop()
-end)
-
-
-print("hello, world, hello, queue!")
-
-local Directory = "TempCode"
-if not isfolder(Directory) then
-	makefolder(Directory)
 end
 
 ServerHop()
