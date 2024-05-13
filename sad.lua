@@ -4,12 +4,7 @@ if not game:IsLoaded() then
 	end
 end
 
-print("hello, world, hello, queue!")
-
-local Directory = "TempCode"
-if not isfolder(Directory) then
-	makefolder(Directory)
-end
+repeat wait() until game:IsLoaded()
 
 script_key = "a"
 local function ServerHop()
@@ -50,6 +45,18 @@ local function ServerHop()
 
 		task.wait(10)
 	end
+end
+
+task.delay(10, function()
+    ServerHop()
+end)
+
+
+print("hello, world, hello, queue!")
+
+local Directory = "TempCode"
+if not isfolder(Directory) then
+	makefolder(Directory)
 end
 
 ServerHop()
