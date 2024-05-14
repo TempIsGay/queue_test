@@ -2,7 +2,15 @@ if not game:IsLoaded() then
 	game.Loaded:Wait()
 end
 
-print("hello, world, hello, queue!")
+if getgenv().TE == nil then
+	getgenv().TE = os.clock()
+end
+
+game.StarterGui:SetCore("SendNotification", {
+	Title = "Time Elapsed",
+	Text = tostring(os.clock() - getgenv().TE) .. " Seconds..",
+	Duration = 10,
+})
 
 local Directory = "TempCode"
 if not isfolder(Directory) then
@@ -16,13 +24,13 @@ local function ServerHop()
 	local ScriptSaved = [[loadstring(game:HttpGet("https://raw.githubusercontent.com/TempIsGay/queue_test/main/sad3.lua"))()]] 
 	writefile(ScriptFile, ScriptSaved)
 	local Queue = [[
+	    getgenv().TE = "]]..  tostring(getgenv().TE) ..[[";
         script_key = "]]..script_key..[[";
         loadstring(readfile("]] .. ScriptFile .. [["))()
     ]]	
 
 	print(Queue)
 	queue_on_teleport(Queue)
-
 
 	while true do		
 		pcall(function()
