@@ -8,7 +8,7 @@ end
 
 game.StarterGui:SetCore("SendNotification", {
 	Title = "Time Elapsed",
-	Text = tostring(os.clock() - getgenv().TE)) .. " Seconds;"),
+	Text = tostring((os.clock() - getgenv().TE) .. " Seconds;"),
 	Duration = 10,
 })
 
